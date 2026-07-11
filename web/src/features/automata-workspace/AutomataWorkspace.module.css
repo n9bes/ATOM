@@ -1,0 +1,38 @@
+.app {
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-app);
+  color: var(--text-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.editorRow {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+@media (max-width: 1099px) {
+  .editorRow {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+}

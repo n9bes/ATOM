@@ -1,0 +1,59 @@
+@import './styles/theme.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  background: var(--bg-app);
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--text-primary);
+}
+a:hover {
+  color: var(--accent);
+}
+
+textarea,
+input,
+button {
+  font-family: inherit;
+}
+
+textarea {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes pulse-node {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 1px var(--accent-glow));
+  }
+  50% {
+    filter: drop-shadow(0 0 9px var(--accent-glow));
+  }
+}

@@ -1,0 +1,119 @@
+.panel {
+  border-top: 1px solid var(--border-default);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sectionTitle {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cannotSimulate {
+  font-size: 12.5px;
+  color: var(--text-dim);
+}
+
+.inputRow {
+  display: flex;
+  gap: 8px;
+}
+
+.input {
+  flex: 1;
+  background: var(--bg-input);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  padding: 8px 10px;
+}
+.input:focus {
+  outline: none;
+  border-color: var(--border-dashed);
+}
+
+.errorText {
+  font-size: 11.5px;
+  color: var(--danger-text);
+}
+
+.charRow {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.charBox,
+.charBoxDone,
+.charBoxCurrent {
+  width: 28px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  flex: none;
+  border: 1px solid var(--border-subtle);
+}
+
+.charBox {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+}
+
+.charBoxDone {
+  background: var(--accent-soft-bg);
+  border-color: var(--accent-soft-border);
+  color: var(--text-primary);
+}
+
+.charBoxCurrent {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.fill {
+  flex: 1;
+}
+
+.traceText {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.traceHighlight {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.statusBox {
+  font-size: 11.5px;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+}
+
+.statusAccent {
+  background: var(--accent-soft-bg);
+  border: 1px solid var(--accent-soft-border);
+  color: var(--text-primary);
+}
+
+.statusDanger {
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger-text);
+}

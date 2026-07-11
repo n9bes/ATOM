@@ -1,0 +1,91 @@
+.wrapper {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlightLayer {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  padding: 16px 0;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.95;
+  pointer-events: none;
+  white-space: pre;
+}
+
+.line {
+  display: flex;
+}
+
+.lineNumber {
+  width: 38px;
+  text-align: right;
+  color: var(--text-linenum);
+  padding-right: 14px;
+  flex: none;
+  user-select: none;
+}
+
+.tok-keyword {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+.tok-arrow {
+  color: var(--text-muted);
+}
+.tok-brace {
+  color: var(--text-primary);
+}
+.tok-comma {
+  color: var(--text-muted);
+}
+.tok-identifier {
+  color: var(--text-code);
+}
+.tok-default {
+  color: var(--text-code);
+}
+
+.textarea {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px 0 16px 52px;
+  border: none;
+  resize: none;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.95;
+  overflow: auto;
+}
+
+.errorTooltip {
+  position: absolute;
+  left: 60px;
+  background: var(--bg-panel-raised);
+  border: 1px solid var(--danger-border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-size: 11.5px;
+  color: var(--danger-text-strong);
+  width: 340px;
+  max-width: calc(100% - 80px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.errorTitle {
+  color: var(--danger-text);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
