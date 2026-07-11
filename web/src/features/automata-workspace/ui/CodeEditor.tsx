@@ -1,4 +1,4 @@
-import { useMemo, useRef } from 'react';
+import { useMemo, useRef, type KeyboardEvent } from 'react';
 import styles from './CodeEditor.module.css';
 import { highlightLine } from '../utilities/highlight';
 
@@ -28,6 +28,24 @@ export function CodeEditor({ source, onChange, errorLine, errorTooltip }: CodeEd
     ? Math.round(TOP_PADDING + (errorTooltip.line - 1) * LINE_HEIGHT + LINE_HEIGHT + 6)
     : 0;
 
+  // Por defecto el navegador usa Tab para mover el foco al siguiente elemento; acá lo
+  // interceptamos para que inserte indentación, como en un editor de código real.
+  // execCommand mantiene el undo (Ctrl+Z) funcionando, a diferencia de splicear el string.
+  const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key !== 'Tab') return;
+    e.preventDefault();
+    const textarea = e.currentTarget;
+    const inserted = document.execCommand?.('insertText', false, '  ');
+    if (!inserted) {
+      const { selectionStart, selectionEnd, value } = textarea;
+      const next = value.slice(0, selectionStart) + '  ' + value.slice(selectionEnd);
+      onChange(next);
+      requestAnimationFrame(() => {
+        textarea.selectionStart = textarea.selectionEnd = selectionStart + 2;
+      });
+    }
+  };
+
   return (
     <div className={styles.wrapper}>
       <div ref={preRef} className={styles.highlightLayer} aria-hidden="true">
@@ -54,6 +72,7 @@ export function CodeEditor({ source, onChange, errorLine, errorTooltip }: CodeEd
         value={source}
         onChange={(e) => onChange(e.target.value)}
         onScroll={handleScroll}
+        onKeyDown={handleKeyDown}
         spellCheck={false}
       />
       {errorTooltip && (

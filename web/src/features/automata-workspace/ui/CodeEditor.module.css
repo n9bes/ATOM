@@ -21,6 +21,7 @@
 }
 
 .lineNumber {
+  box-sizing: content-box;
   width: 38px;
   text-align: right;
   color: var(--text-linenum);
