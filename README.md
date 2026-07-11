@@ -1,6 +1,6 @@
 # ATOM - Analizador Léxico y Sintáctico
 
-# Diaz, Cristian Leandro. Sosa Ducass, Mateo Ismael. Velozo, Agustin.
+Diaz, Cristian Leandro. Sosa Ducass, Mateo Ismael. Velozo, Agustin.
 
 Este proyecto consiste en el diseño e implementación de un analizador léxico (Lexer) y sintáctico (Parser) para **ATOM**, un lenguaje de dominio específico (DSL) diseñado para la descripción y simulación formal de Autómatas Finitos.
 
