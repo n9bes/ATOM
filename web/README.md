@@ -58,6 +58,8 @@ de cadenas paso a paso — todo corriendo 100% en el navegador, sin backend.
 
 Stack: React + TypeScript + Vite, offline-first vía `vite-plugin-pwa`.
 
+Demo en producción: **https://atomtool.vercel.app** (instalable como app desde el navegador).
+
 ## Arquitectura
 
 Sigue la estructura feature-based del proyecto: UI, parser, domain, services y utilities
@@ -88,6 +90,7 @@ npm install
 npm run dev       # servidor de desarrollo
 npm run build     # typecheck + build de producción
 npm run lint       # oxlint
+npm run generate-pwa-assets   # regenera los íconos de la PWA desde public/favicon.svg
 ```
 
 ## Deploy
@@ -142,7 +145,14 @@ Solo asegurarse de servir bajo HTTPS para que el Service Worker se registre.
 
 ### Notas de la PWA
 
-- El manifest (`vite.config.ts`) no tiene íconos configurados todavía (`icons: []`). Antes
-  de un deploy "serio" conviene generar íconos (192×192 y 512×512) y agregarlos ahí.
+- **Íconos**: el logo fuente es `public/favicon.svg`. A partir de él,
+  `npm run generate-pwa-assets` (config en `pwa-assets.config.ts`) genera en `public/`:
+  - `pwa-64x64.png`, `pwa-192x192.png`, `pwa-512x512.png` — íconos del manifest
+  - `maskable-icon-512x512.png` — ícono adaptable (Android recorta la forma)
+  - `apple-touch-icon-180x180.png` — ícono al agregar a la pantalla de inicio en iOS
+  - `favicon.ico` — fallback para navegadores sin soporte de favicon SVG
+
+  Los íconos están declarados en el manifest (`vite.config.ts`) y en `index.html`. Si
+  cambia el logo, regenerarlos con ese comando y commitear los PNG resultantes.
 - `registerType: 'autoUpdate'` hace que las actualizaciones se apliquen solas en la
   siguiente carga — no requiere que el usuario reinstale la app.
